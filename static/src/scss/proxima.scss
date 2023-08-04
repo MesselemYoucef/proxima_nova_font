@@ -1,0 +1,38 @@
+// ------------------------------------------------------------------
+// ProximaNova
+// ------------------------------------------------------------------
+$proxima-font-path: '../font/proxima';
+
+@mixin proxima-font($type, $weight, $style) {
+    @font-face {
+        font-family: 'ProximaNova';
+        src: url('#{$proxima-font-path}/ProximaNova-#{$type}.eot');
+        src: url('#{$proxima-font-path}/ProximaNova-#{$type}.eot?#iefix') format('embedded-opentype'),
+             url('#{$proxima-font-path}/ProximaNova-#{$type}.woff') format('woff'),
+             url('#{$proxima-font-path}/ProximaNova-#{$type}.ttf') format('truetype'),
+             url('#{$proxima-font-path}/ProximaNova-#{$type}.svg#proxima') format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
+
+    @font-face {
+        font-family: 'ProximaNova-#{$type}';
+        src: url('#{$proxima-font-path}/ProximaNova-#{$type}.eot');
+        src: url('#{$proxima-font-path}/ProximaNova-#{$type}.eot?#iefix') format('embedded-opentype'),
+             url('#{$proxima-font-path}/ProximaNova-#{$type}.woff') format('woff'),
+             url('#{$proxima-font-path}/ProximaNova-#{$type}.ttf') format('truetype'),
+             url('#{$proxima-font-path}/ProximaNova-#{$type}.svg#proxima') format('svg');
+    }
+}
+
+@mixin proxima-font-pair($type, $weight) {
+    @include proxima-font('#{$type}', $weight, normal);
+    @include proxima-font('#{$type}Italic', $weight, italic);
+}
+
+
+
+@include proxima-font-pair('Light', 300);
+@include proxima-font-pair('Regular', 400);
+@include proxima-font-pair('Bold', 700);
+@include proxima-font-pair('Extrabold', 800);
